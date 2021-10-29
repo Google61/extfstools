@@ -1,5 +1,16 @@
-exttools
+extfstools-bionic
 ========
+
+Fork of extfstools for Android
+
+Download: [![CMake](https://github.com/Google61/extfstools-bionic/actions/workflows/cmake.yml/badge.svg)](https://github.com/Google61/extfstools-bionic/actions/workflows/cmake.yml)
+
+Built for/tested on unrooted android-19 arm (4.4.2), but I'm sure this will work on older systems too
+
+It can be built without modifications on android-24 target I think, as I simply copied parts of Nougat's libc to make it work
+
+exttools
+======
 
 Some tools for reading ext2/ext3/ext4 filesystem images.
 
