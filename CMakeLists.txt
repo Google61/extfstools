@@ -39,6 +39,9 @@ add_library(itslib STATIC itslib/src/stringutils.cpp)
 target_include_directories(itslib PUBLIC itslib)
 target_compile_definitions(itslib PUBLIC _UNIX _NO_RAPI)
 
+add_library(sys_time STATIC sys_time.cpp)
+target_include_directories(sys_time PUBLIC include)
+
 set(Boost_USE_STATIC_LIBS OFF) 
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
@@ -79,6 +82,7 @@ endif()
 
 add_executable(ext2rd ext2rd.cpp)
 target_link_libraries(ext2rd  itslib)
+target_link_libraries(ext2rd  sys_time)
 target_link_libraries(ext2rd ${MMAPLIB})
 
 
