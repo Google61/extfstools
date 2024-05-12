@@ -11,7 +11,7 @@
 #include <ctime>                // gmtime, strftime
 
 #ifdef USE_CPPUTILS
-#include "mmfile.h"
+#include <cpputils/mmfile.h>
 #include "util/rw/MemoryReader.h"
 #else
 #include "util/rw/MmapReader.h"
@@ -24,6 +24,7 @@
 #include <memory>
 #include <system_error>
 #include <sys/stat.h>
+#include <inttypes.h>   // PRIx64
 
 #ifdef _WIN32
 #include <direct.h>
@@ -1119,7 +1120,7 @@ struct exportdirectory : action {
     {
         uint32_t ino= searchpath(fs, fs.rootdir_in, ext2path);
         if (ino==0) {
-            printf("exportdir: path not found\n");
+            printf("exportdir: path not found: %s\n", ext2path.c_str());
             return;
         }
         recursedirs(fs, ino, ".", [&](const DirectoryEntry& e, const std::string& path) {
