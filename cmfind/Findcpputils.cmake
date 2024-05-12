@@ -3,7 +3,7 @@ find_path(CPPUTILS_PATH NAMES string-lineenum.h PATHS ${CPPUTILS_DIRS})
 if(NOT CPPUTILS_PATH)
     include(FetchContent)
     FetchContent_Populate(cpputils
-        GIT_REPOSITORY https://github.com/nlitsme/cpputils)
+        GIT_REPOSITORY https://github.com/Google61/cpputils)
     # TODO: check fetch result
 
     set(CPPUTILS_PATH ${CMAKE_BINARY_DIR}/cpputils-src)
